@@ -1,0 +1,35 @@
+{
+  "transactions": [
+    {
+      "hash": "0x7f0fc64122dd5f1a03c469b54f6b7e271e048baa468afaa6ccb44f502ab6452b",
+      "transactionType": "CALL",
+      "contractName": null,
+      "contractAddress": "0xA5D387f804c88bd326B5B9888aE4018A5ba1D760",
+      "function": null,
+      "arguments": null,
+      "rpc": "http://localhost:8545",
+      "transaction": {
+        "type": "0x02",
+        "from": "0x67b1d87101671b127f5f8714789c7192f7ad340e",
+        "to": "0xa5d387f804c88bd326b5b9888ae4018a5ba1d760",
+        "gas": "0x11408",
+        "value": "0x0",
+        "data": "0x40c10f19000000000000000000000000cdcffa6f5deb2b947babee378654a46ea5d058920000000000000000000000000000000000000000000000008ac7230489e80000",
+        "nonce": "0x8",
+        "accessList": []
+      },
+      "additionalContracts": []
+    }
+  ],
+  "receipts": [],
+  "libraries": [],
+  "pending": [
+    "0x7f0fc64122dd5f1a03c469b54f6b7e271e048baa468afaa6ccb44f502ab6452b"
+  ],
+  "path": "/Users/u/Projects/curra/contracts/broadcast/Playground.s.sol/1337/run-latest.json",
+  "returns": {},
+  "timestamp": 1676493102,
+  "chain": 1337,
+  "multi": false,
+  "commit": "4b21244"
+}

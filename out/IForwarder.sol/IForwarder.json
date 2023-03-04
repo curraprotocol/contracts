@@ -1,0 +1,787 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "dest",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "flush",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "dest",
+          "type": "address"
+        }
+      ],
+      "name": "flushERC1155Tokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "dest",
+          "type": "address"
+        }
+      ],
+      "name": "flushERC721Token",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "dest",
+          "type": "address"
+        }
+      ],
+      "name": "flushTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "flush(address,uint256)": "96fd1c42",
+    "flushERC1155Tokens(address,uint256,uint256,address)": "fbd5f6b0",
+    "flushERC721Token(address,uint256,address)": "aca8fc59",
+    "flushTokens(address,uint256,address)": "0e1b84f4"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"dest\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"flush\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dest\",\"type\":\"address\"}],\"name\":\"flushERC1155Tokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dest\",\"type\":\"address\"}],\"name\":\"flushERC721Token\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dest\",\"type\":\"address\"}],\"name\":\"flushTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Dmytro Pintak <dmytro.pintak@gmail.com>\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Rule interface, can be implemented by any contract to be used as a rule in Traffic.sol contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"flush(address,uint256)\":{\"notice\":\"Execute a coins transfer from the forwarder to the dest address\"},\"flushERC1155Tokens(address,uint256,uint256,address)\":{\"notice\":\"Execute a ERC1155 transfer from the forwarder to the dest address\"},\"flushERC721Token(address,uint256,address)\":{\"notice\":\"Execute a ERC721 transfer from the forwarder to the dest address\"},\"flushTokens(address,uint256,address)\":{\"notice\":\"Execute a ERC20 transfer from the forwarder to the dest address\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/IForwarder.sol\":\"IForwarder\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":2500},\"remappings\":[\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":solmate/=lib/solmate/src/\"]},\"sources\":{\"src/IForwarder.sol\":{\"keccak256\":\"0x4c1a7feb87643c599e23de29ca7101b990ea8632bd2ae7294c1960b1e34ca09e\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://a872a2dc7c36b3609306a2c331187d22eed811cad0e01598bf96a7d57a998f5a\",\"dweb:/ipfs/QmfS31NaoraroShw41hXKXM28nrDDuAjH4oCRdP1GqtsDB\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.17+commit.8df45f5f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "dest",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "flush"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "dest",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "flushERC1155Tokens"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "dest",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "flushERC721Token"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "dest",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "flushTokens"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "flush(address,uint256)": {
+            "notice": "Execute a coins transfer from the forwarder to the dest address"
+          },
+          "flushERC1155Tokens(address,uint256,uint256,address)": {
+            "notice": "Execute a ERC1155 transfer from the forwarder to the dest address"
+          },
+          "flushERC721Token(address,uint256,address)": {
+            "notice": "Execute a ERC721 transfer from the forwarder to the dest address"
+          },
+          "flushTokens(address,uint256,address)": {
+            "notice": "Execute a ERC20 transfer from the forwarder to the dest address"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":solmate/=lib/solmate/src/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 2500
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/IForwarder.sol": "IForwarder"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/IForwarder.sol": {
+        "keccak256": "0x4c1a7feb87643c599e23de29ca7101b990ea8632bd2ae7294c1960b1e34ca09e",
+        "urls": [
+          "bzz-raw://a872a2dc7c36b3609306a2c331187d22eed811cad0e01598bf96a7d57a998f5a",
+          "dweb:/ipfs/QmfS31NaoraroShw41hXKXM28nrDDuAjH4oCRdP1GqtsDB"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/IForwarder.sol",
+    "id": 30685,
+    "exportedSymbols": {
+      "IForwarder": [
+        30684
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "39:851:45",
+    "nodes": [
+      {
+        "id": 30642,
+        "nodeType": "PragmaDirective",
+        "src": "39:23:45",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".17"
+        ]
+      },
+      {
+        "id": 30684,
+        "nodeType": "ContractDefinition",
+        "src": "223:666:45",
+        "nodes": [
+          {
+            "id": 30651,
+            "nodeType": "FunctionDefinition",
+            "src": "330:53:45",
+            "nodes": [],
+            "documentation": {
+              "id": 30644,
+              "nodeType": "StructuredDocumentation",
+              "src": "250:75:45",
+              "text": "@notice Execute a coins transfer from the forwarder to the dest address"
+            },
+            "functionSelector": "96fd1c42",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flush",
+            "nameLocation": "339:5:45",
+            "parameters": {
+              "id": 30649,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30646,
+                  "mutability": "mutable",
+                  "name": "dest",
+                  "nameLocation": "353:4:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30651,
+                  "src": "345:12:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30645,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "345:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30648,
+                  "mutability": "mutable",
+                  "name": "value",
+                  "nameLocation": "367:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30651,
+                  "src": "359:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 30647,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "359:7:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "344:29:45"
+            },
+            "returnParameters": {
+              "id": 30650,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "382:0:45"
+            },
+            "scope": 30684,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 30661,
+            "nodeType": "FunctionDefinition",
+            "src": "469:74:45",
+            "nodes": [],
+            "documentation": {
+              "id": 30652,
+              "nodeType": "StructuredDocumentation",
+              "src": "389:75:45",
+              "text": "@notice Execute a ERC20 transfer from the forwarder to the dest address"
+            },
+            "functionSelector": "0e1b84f4",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flushTokens",
+            "nameLocation": "478:11:45",
+            "parameters": {
+              "id": 30659,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30654,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "498:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30661,
+                  "src": "490:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30653,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "490:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30656,
+                  "mutability": "mutable",
+                  "name": "value",
+                  "nameLocation": "513:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30661,
+                  "src": "505:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 30655,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "505:7:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30658,
+                  "mutability": "mutable",
+                  "name": "dest",
+                  "nameLocation": "528:4:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30661,
+                  "src": "520:12:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30657,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "520:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "489:44:45"
+            },
+            "returnParameters": {
+              "id": 30660,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:0:45"
+            },
+            "scope": 30684,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 30671,
+            "nodeType": "FunctionDefinition",
+            "src": "630:76:45",
+            "nodes": [],
+            "documentation": {
+              "id": 30662,
+              "nodeType": "StructuredDocumentation",
+              "src": "549:76:45",
+              "text": "@notice Execute a ERC721 transfer from the forwarder to the dest address"
+            },
+            "functionSelector": "aca8fc59",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flushERC721Token",
+            "nameLocation": "639:16:45",
+            "parameters": {
+              "id": 30669,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30664,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "664:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30671,
+                  "src": "656:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30663,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "656:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30666,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "679:2:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30671,
+                  "src": "671:10:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 30665,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "671:7:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30668,
+                  "mutability": "mutable",
+                  "name": "dest",
+                  "nameLocation": "691:4:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30671,
+                  "src": "683:12:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30667,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "683:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "655:41:45"
+            },
+            "returnParameters": {
+              "id": 30670,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "705:0:45"
+            },
+            "scope": 30684,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 30683,
+            "nodeType": "FunctionDefinition",
+            "src": "794:93:45",
+            "nodes": [],
+            "documentation": {
+              "id": 30672,
+              "nodeType": "StructuredDocumentation",
+              "src": "712:77:45",
+              "text": "@notice Execute a ERC1155 transfer from the forwarder to the dest address"
+            },
+            "functionSelector": "fbd5f6b0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "flushERC1155Tokens",
+            "nameLocation": "803:18:45",
+            "parameters": {
+              "id": 30681,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 30674,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "830:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30683,
+                  "src": "822:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30673,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "822:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30676,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "845:2:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30683,
+                  "src": "837:10:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 30675,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "837:7:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30678,
+                  "mutability": "mutable",
+                  "name": "value",
+                  "nameLocation": "857:5:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30683,
+                  "src": "849:13:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 30677,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "849:7:45",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 30680,
+                  "mutability": "mutable",
+                  "name": "dest",
+                  "nameLocation": "872:4:45",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 30683,
+                  "src": "864:12:45",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 30679,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "864:7:45",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "821:56:45"
+            },
+            "returnParameters": {
+              "id": 30682,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "886:0:45"
+            },
+            "scope": 30684,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IForwarder",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 30643,
+          "nodeType": "StructuredDocumentation",
+          "src": "64:159:45",
+          "text": "@author Dmytro Pintak <dmytro.pintak@gmail.com>\n @title Rule interface, can be implemented by any contract to be used as a rule in Traffic.sol contract"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          30684
+        ],
+        "name": "IForwarder",
+        "nameLocation": "233:10:45",
+        "scope": 30685,
+        "usedErrors": []
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 45
+}
