@@ -1,0 +1,4 @@
+[submodule "lib/solady"]
+	path = lib/solady
+	url = https://github.com/Vectorized/solady
+	branch = v0.0.78
