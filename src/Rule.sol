@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.17;
+pragma solidity 0.8.18;
 
 /// @author Dmytro Pintak <dmytro.pintak@gmail.com>
 /// @title Rule interface, can be implemented by any contract to be used as a rule in Traffic.sol contract

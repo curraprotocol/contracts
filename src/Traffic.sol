@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.17;
+pragma solidity 0.8.18;
 
-import {Clones} from "lib/openzeppelin-contracts/contracts/proxy/Clones.sol";
+import {LibClone} from "lib/solady/src/utils/LibClone.sol";
 import {Counters} from "lib/openzeppelin-contracts/contracts/utils/Counters.sol";
 import {Create2} from "lib/openzeppelin-contracts/contracts/utils/Create2.sol";
 import {ERC721} from "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
@@ -72,12 +72,12 @@ contract Traffic is ERC721 {
     function deployForwarder(uint256 ownershipId, bytes32 salt) internal returns (address) {
         // include the signers in the salt so any contract deployed to a given address must have the same signers
         bytes32 finalSalt = keccak256(abi.encodePacked(ownershipId, salt));
-        return Clones.cloneDeterministic(forwarderImplementation, finalSalt);
+        return LibClone.cloneDeterministic(forwarderImplementation, finalSalt);
     }
 
     /// @notice Predicts forwarder address using CREATE2
     function computeForwarderAddress(uint256 ownershipId, bytes32 salt) public view returns (address) {
-        return Clones.predictDeterministicAddress(
+        return LibClone.predictDeterministicAddress(
             forwarderImplementation, keccak256(abi.encodePacked(ownershipId, salt)), address(this)
         );
     }
