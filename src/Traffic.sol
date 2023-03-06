@@ -73,10 +73,31 @@ contract Traffic is ERC721 {
     }
 
     /// @notice Used to deploy new forwarder contract using CREATE2 clones
-    function deployForwarder(uint256 ownershipId, bytes32 salt) internal returns (address) {
-        // include the signers in the salt so any contract deployed to a given address must have the same signers
-        bytes32 finalSalt = keccak256(abi.encodePacked(ownershipId, salt));
-        return LibClone.cloneDeterministic(forwarderImplementation, finalSalt);
+    function deployForwarder(uint256 ownershipId, bytes32 salt) internal returns (address instance) {
+	address implementation = forwarderImplementation;
+
+        assembly {
+	    mstore(0x20, salt)
+	    mstore(0x00, ownershipId)
+	    let saltHash := keccak256(0x00, 0x40)
+            // Restore the part of the free memory pointer that has been overwritten.
+            mstore(0x21, 0x00)
+
+            mstore(0x21, 0x5af43d3d93803e602a57fd5bf3)
+            mstore(0x14, implementation)
+            mstore(0x00, 0x602c3d8160093d39f33d3d3d3d363d3d37363d73)
+
+            instance := create2(0, 0x0c, 0x35, saltHash)
+            // Restore the part of the free memory pointer that has been overwritten.
+            mstore(0x21, 0)
+            // If `instance` is zero, revert.
+            if iszero(instance) {
+                // Store the function selector of `DeploymentFailed()`.
+                mstore(0x00, 0x30116425)
+                // Revert with (offset, size).
+                revert(0x1c, 0x04)
+            }
+        }
     }
 
     /// @notice Predicts forwarder address using CREATE2
