@@ -4,7 +4,7 @@
 .PHONY: deploy-testnet deploy-local test
 
 test:
-	forge test -vvvv
+	forge test -vvvv --optimize --optimizer-runs 30000
 
 deploy:
 	forge script script/Deploy.s.sol:Deploy --rpc-url ${RPC_URL} --private-key ${PRIVATE_KEY} --broadcast --verify --etherscan-api-key ${ETHERSCAN_API_KEY} -vvvv

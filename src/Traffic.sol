@@ -87,20 +87,14 @@ contract Traffic is ERC721 {
     }
 
     // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ERC20 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-    function _flushERC20(uint256 ownershipId, address forwarderAddress, address token, uint256 value, address dest)
-        internal
+    function flushERC20(uint256 ownershipId, bytes32 forwarderSalt, address token, uint256 value, address dest)
+        public
     {
+        address forwarderAddress = computeForwarderAddress(ownershipId, forwarderSalt);
         Rule rule = Rule(getRule(ownershipId));
         (address d, uint256 v) = rule.execERC20(forwarderAddress, token, value, dest);
         IForwarder forwarder = IForwarder(forwarderAddress);
         forwarder.flushTokens(token, v, d);
-    }
-
-    function flushERC20(uint256 ownershipId, bytes32 forwarderSalt, address token, uint256 value, address dest)
-        public
-    {
-        address forwarder = computeForwarderAddress(ownershipId, forwarderSalt);
-        _flushERC20(ownershipId, forwarder, token, value, dest);
     }
 
     function createForwarderERC20(
@@ -110,79 +104,53 @@ contract Traffic is ERC721 {
         uint256 value,
         address dest
     ) external {
-        address forwarder = deployForwarder(ownershipId, forwarderSalt);
-        _flushERC20(ownershipId, forwarder, token, value, dest);
+        address forwarderAddress = deployForwarder(ownershipId, forwarderSalt);
+        Rule rule = Rule(getRule(ownershipId));
+        (address d, uint256 v) = rule.execERC20(forwarderAddress, token, value, dest);
+        IForwarder forwarder = IForwarder(forwarderAddress);
+        forwarder.flushTokens(token, v, d);
     }
     // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Coins ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-    function _flush(uint256 ownershipId, address forwarderAddress, uint256 value, address dest) internal {
+    function flush(uint256 ownershipId, bytes32 forwarderSalt, uint256 value, address dest) public {
+        address forwarderAddress = computeForwarderAddress(ownershipId, forwarderSalt);
         Rule rule = Rule(getRule(ownershipId));
         (address d, uint256 v) = rule.exec(forwarderAddress, value, dest);
         IForwarder forwarder = IForwarder(forwarderAddress);
         forwarder.flush(d, v);
     }
 
-    function flush(uint256 ownershipId, bytes32 forwarderSalt, uint256 value, address dest) public {
-        address forwarder = computeForwarderAddress(ownershipId, forwarderSalt);
-        _flush(ownershipId, forwarder, value, dest);
-    }
-
     function createForwarder(uint256 ownershipId, bytes32 forwarderSalt, uint256 value, address dest) external {
-        address forwarder = deployForwarder(ownershipId, forwarderSalt);
-        _flush(ownershipId, forwarder, value, dest);
+        address forwarderAddress = deployForwarder(ownershipId, forwarderSalt);
+        Rule rule = Rule(getRule(ownershipId));
+        (address d, uint256 v) = rule.exec(forwarderAddress, value, dest);
+        IForwarder forwarder = IForwarder(forwarderAddress);
+        forwarder.flush(d, v);
     }
     // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-    // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ERC721 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-    function execRuleERC721(uint256 ownershipId, address forwarder, address token, uint256 id, address dest)
-        internal
-        view
-        returns (address)
-    {
-        Rule rule = Rule(getRule(ownershipId));
-        return rule.execERC721(forwarder, token, id, dest);
-    }
 
-    function _flushERC721(uint256 ownershipId, uint256 id, address forwarderAddress, address token, address dest)
-        internal
-    {
-        (address d) = execRuleERC721(ownershipId, forwarderAddress, token, id, dest);
+    // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ERC721 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    function flushERC721(uint256 ownershipId, uint256 id, bytes32 forwarderSalt, address token, address dest) public {
+        address forwarderAddress = computeForwarderAddress(ownershipId, forwarderSalt);
+        Rule rule = Rule(getRule(ownershipId));
+        address d = rule.execERC721(forwarderAddress, token, id, dest);
         IForwarder forwarder = IForwarder(forwarderAddress);
         forwarder.flushERC721Token(token, id, d);
     }
 
-    function flushERC721(uint256 ownershipId, uint256 id, bytes32 forwarderSalt, address token, address dest) public {
-        address forwarderAddress = computeForwarderAddress(ownershipId, forwarderSalt);
-        _flushERC721(ownershipId, id, forwarderAddress, token, dest);
-    }
-
-    function createForwarderERC721(
-        uint256 ownershipId,
-        uint256 id,
-        bytes32 forwarderSalt,
-        address tokenContractAddress,
-        address dest
-    ) external {
-        address forwarder = deployForwarder(ownershipId, forwarderSalt);
-        _flushERC721(ownershipId, id, forwarder, tokenContractAddress, dest);
+    function createForwarderERC721(uint256 ownershipId, uint256 id, bytes32 forwarderSalt, address token, address dest)
+        external
+    {
+        address forwarderAddress = deployForwarder(ownershipId, forwarderSalt);
+        Rule rule = Rule(getRule(ownershipId));
+        address d = rule.execERC721(forwarderAddress, token, id, dest);
+        IForwarder forwarder = IForwarder(forwarderAddress);
+        forwarder.flushERC721Token(token, id, d);
     }
     // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ERC1155 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-    function _flushERC1155(
-        uint256 ownershipId,
-        uint256 id,
-        address forwarderAddress,
-        address token,
-        uint256 value,
-        address dest
-    ) internal {
-        Rule rule = Rule(getRule(ownershipId));
-        (address d, uint256 v) = rule.execERC1155(forwarderAddress, token, id, value, dest);
-        IForwarder forwarder = IForwarder(forwarderAddress);
-        forwarder.flushERC1155Tokens(token, id, v, d);
-    }
-
     function flushERC1155(
         uint256 ownershipId,
         uint256 id,
@@ -192,7 +160,10 @@ contract Traffic is ERC721 {
         address dest
     ) public {
         address forwarderAddress = computeForwarderAddress(ownershipId, forwarderSalt);
-        _flushERC1155(ownershipId, id, forwarderAddress, token, value, dest);
+        Rule rule = Rule(getRule(ownershipId));
+        (address d, uint256 v) = rule.execERC1155(forwarderAddress, token, id, value, dest);
+        IForwarder forwarder = IForwarder(forwarderAddress);
+        forwarder.flushERC1155Tokens(token, id, v, d);
     }
 
     function createForwarderERC1155(
@@ -203,8 +174,11 @@ contract Traffic is ERC721 {
         uint256 value,
         address dest
     ) external {
-        address forwarder = deployForwarder(ownershipId, forwarderSalt);
-        _flushERC1155(ownershipId, id, forwarder, token, value, dest);
+        address forwarderAddress = deployForwarder(ownershipId, forwarderSalt);
+        Rule rule = Rule(getRule(ownershipId));
+        (address d, uint256 v) = rule.execERC1155(forwarderAddress, token, id, value, dest);
+        IForwarder forwarder = IForwarder(forwarderAddress);
+        forwarder.flushERC1155Tokens(token, id, v, d);
     }
     // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 }
