@@ -6,7 +6,6 @@ import "forge-std/Test.sol";
 
 import "lib/openzeppelin-contracts/contracts/token/ERC1155/ERC1155.sol";
 import "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
-import "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 
 import "../src/Forwarder.sol";
 import "../src/Traffic.sol";

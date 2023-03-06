@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity >=0.8.17 <0.9.0;
 
-
 import "lib/forge-std/src/Script.sol";
-import {ERC20PresetFixedSupply} from "lib/openzeppelin-contracts/contracts/token/ERC20/presets/ERC20PresetFixedSupply.sol";
+import {ERC20PresetFixedSupply} from
+    "lib/openzeppelin-contracts/contracts/token/ERC20/presets/ERC20PresetFixedSupply.sol";
 
 import "../src/Forwarder.sol";
 import "../src/Traffic.sol";

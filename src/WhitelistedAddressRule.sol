@@ -13,47 +13,34 @@ contract WhitelistedAddressRule is Rule {
     }
 
     /// @inheritdoc Rule
-    function exec(uint256, address, uint256 value, address dest) external view override returns (address, uint256) {
-        if (dest == address(0x0)) {
-            return (whitelisted, value);
-        }
-        require(dest == whitelisted, "Dest");
-        return (dest, value);
+    function exec(address, uint256 value, address) external view override returns (address d, uint256 v) {
+        d = whitelisted;
+        v = value;
     }
 
     /// @inheritdoc Rule
-    function execERC20(uint256, address, address, uint256 value, address dest)
+    function execERC20(address, address, uint256 value, address)
         external
         view
         override
-        returns (address, uint256)
+        returns (address d, uint256 v)
     {
-        if (dest == address(0x0)) {
-            return (whitelisted, value);
-        }
-        require(dest == whitelisted, "Dest");
-        return (dest, value);
+        d = whitelisted;
+        v = value;
     }
 
     /// @inheritdoc Rule
-    function execERC721(uint256, address, address, uint256, address dest) external view override returns (address) {
-        if (dest == address(0x0)) {
-            return whitelisted;
-        }
-        require(dest == whitelisted, "Dest");
-        return (dest);
+    function execERC721(address, address, uint256, address) external view override returns (address d) {
+        d = whitelisted;
     }
 
     /// @inheritdoc Rule
-    function execERC1155(uint256, address, address, uint256, uint256 value, address dest)
+    function execERC1155(address, address, uint256, uint256 value, address)
         external
         view
-        returns (address, uint256)
+        returns (address d, uint256 v)
     {
-        if (dest == address(0x0)) {
-            return (whitelisted, value);
-        }
-        require(dest == whitelisted, "Dest");
-        return (dest, value);
+        d = whitelisted;
+        v = value;
     }
 }
